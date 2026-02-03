@@ -58,6 +58,9 @@ func main() {
 		}
 		c.JSON(http.StatusOK, gin.H{"db_time": now})
 	})
+	r.GET("/", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{"message": "PantryToPlate API running"})
+	})
 
 	log.Printf("server running on http://localhost:%s", port)
 	if err := r.Run(":" + port); err != nil {
